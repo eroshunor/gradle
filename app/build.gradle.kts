@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.hilt.plugin)
 }
 
 android {
@@ -57,13 +58,18 @@ dependencies {
 
     //Hilt
     implementation(libs.hilt.android)
-    implementation(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     //Navigation
     implementation(libs.navigation)
 
     //ROOM
     implementation(libs.room.runtime)
-    implementation(libs.room.compiler)
+    ksp(libs.room.compiler)
     implementation(libs.room.ktx)
+    
+    // Exclude conflicting annotations
+    configurations.all {
+        exclude(group = "com.intellij", module = "annotations")
+    }
 }
