@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MessageSenderTheme {
-                Scaffold(modifier = Modifier.fillMaxSize().padding(all = 10.dp)) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize().padding(horizontal = 10.dp)) { innerPadding ->
                     Navigation(
                         modifier = Modifier.padding(innerPadding)
                     )

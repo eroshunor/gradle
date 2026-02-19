@@ -64,6 +64,7 @@ dependencies {
 
     //Navigation
     implementation(libs.navigation)
+
     //Serialization
     implementation(libs.kotlinx.serialization.json)
 
@@ -72,6 +73,9 @@ dependencies {
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
 
+    //Coroutines
+    implementation(libs.kotlin.coroutines)
+    implementation("androidx.compose.material:material-icons-extended")
     // Exclude conflicting annotations
     configurations.all {
         exclude(group = "com.intellij", module = "annotations")
