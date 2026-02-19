@@ -1,4 +1,4 @@
-package com.example.hilt2.presentation.home_screen.components
+package com.example.messagesender.presentation.home_screen.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
@@ -16,11 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.messagesender.domain.model.User
+import com.example.messagesender.domain.model.Contact
 
 @Composable
-fun UserCard(
-    user: User,
+fun ContactCard(
+    contact: Contact,
     onClick: () -> Unit
 ) {
     Row(
@@ -39,10 +39,10 @@ fun UserCard(
     ) {
         Column()
         {
-            Text(text = user.name)
-            Text(text = user.licensePlate)
+            Text(text = contact.name)
+            Text(text = contact.licensePlate)
         }
-        Text(text = user.timeStamp)
+        Text(text = contact.timeStamp)
     }
     Spacer(modifier = Modifier.padding(bottom = 10.dp))
 }

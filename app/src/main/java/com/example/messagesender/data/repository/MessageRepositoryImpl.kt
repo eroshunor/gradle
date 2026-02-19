@@ -17,6 +17,7 @@ class MessageRepositoryImpl(
                 null,
                 null
             )
+            println("KORTE + " + "minden szep es jo")
         } catch (e: Exception) {
             println("KORTE + " + e.message)
         }

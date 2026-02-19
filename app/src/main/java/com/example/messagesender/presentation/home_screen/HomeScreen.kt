@@ -13,16 +13,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import com.example.hilt2.presentation.home_screen.components.UserCard
-import com.example.messagesender.domain.model.User
+import com.example.messagesender.presentation.home_screen.components.ContactCard
+import com.example.messagesender.domain.model.Contact
 
 @Composable
 fun HomeScreen(
+    viewModel: HomeViewModel,
     modifier: Modifier,
-    navigateToAddContactScreen: () -> Unit,
-    navigateToEditContactScreen: () -> Unit
-
-
+    navigateToContactDetailsScreen: () -> Unit,
 ) {
     Column{
         Row(
@@ -31,7 +29,7 @@ fun HomeScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(
-                onClick = { },
+                onClick = { viewModel.sendMessage() },
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_dialog_email),
@@ -42,26 +40,18 @@ fun HomeScreen(
                 text = "ITP lista",
                 modifier = modifier
             )
-            IconButton(
-                onClick = navigateToAddContactScreen
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_menu_add),
-                    contentDescription = "Radio button icon"
-                )
-            }
         }
 
         LazyColumn {
             items(20) { index ->
-                UserCard(
-                    user = User(
+                ContactCard(
+                    contact = Contact(
                         name = "PETER PAL $index",
                         licensePlate = "CV 01 BMW $index",
                         timeStamp = "2026.01.01",
                         phoneNumber = "123"
                     ),
-                    onClick = navigateToEditContactScreen
+                    onClick = navigateToContactDetailsScreen
                 )
             }
 

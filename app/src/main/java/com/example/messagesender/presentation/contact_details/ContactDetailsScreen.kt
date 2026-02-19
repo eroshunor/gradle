@@ -1,4 +1,4 @@
-package com.example.messagesender.presentation.edit_contact
+package com.example.messagesender.presentation.contact_details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,15 +8,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.messagesender.core.navigation.ContactDetailsScreen
 
 @Composable
-fun EditContactScreen(
+fun ContactDetailsScreen(
     modifier: Modifier,
+    onBack: () -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Text("EDIT CONTACT", modifier = Modifier.padding(top = 50.dp))
+        Text("EDIT CONTACT", modifier = Modifier.padding(top = 50.dp))
+        Text("EDIT CONTACT", modifier = Modifier.padding(top = 50.dp))
         Text("EDIT CONTACT", modifier = Modifier.padding(top = 50.dp))
     }
 }

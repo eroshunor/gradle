@@ -1,4 +1,4 @@
-package com.example.hilt2.presentation
+package com.example.messagesender.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
