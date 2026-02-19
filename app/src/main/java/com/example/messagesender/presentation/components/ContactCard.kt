@@ -1,4 +1,4 @@
-package com.example.messagesender.presentation.home_screen.components
+package com.example.messagesender.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
@@ -21,7 +21,7 @@ import com.example.messagesender.domain.model.Contact
 @Composable
 fun ContactCard(
     contact: Contact,
-    onClick: () -> Unit
+    onClick: (Int) -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -32,7 +32,9 @@ fun ContactCard(
             )
             .padding(horizontal = 10.dp,vertical = 5.dp)
             .clickable(
-                onClick = onClick
+                onClick = {
+                    onClick(contact.id!!)
+                }
             ),
         horizontalArrangement = Arrangement.Absolute.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,

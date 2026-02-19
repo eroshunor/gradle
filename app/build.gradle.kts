@@ -64,6 +64,7 @@ dependencies {
 
     //Navigation
     implementation(libs.navigation)
+
     //Serialization
     implementation(libs.kotlinx.serialization.json)
 
@@ -71,6 +72,12 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
+
+    //Coroutines
+    implementation(libs.kotlin.coroutines)
+
+    //Icons
+    implementation(libs.material.icons.extended)
 
     // Exclude conflicting annotations
     configurations.all {
