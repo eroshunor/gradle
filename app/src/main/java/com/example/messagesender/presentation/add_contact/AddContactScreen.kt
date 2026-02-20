@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.messagesender.presentation.components.CustomTextField
+import com.example.messagesender.presentation.components.ContactFieldType
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,39 +58,57 @@ fun AddContactScreen(
             ) {
                 CustomTextField(
                     value = uiState.name,
-                    onValueChange = viewModel::onNameChange,
+                    onValueChange = {
+                        viewModel.onContactFieldChange(ContactFieldType.NAME, it)
+                    },
                     label ="Nev",
                     placeholder = "Peter Pal" ,
                     leadingIconImageVector = Icons.Filled.Person,
-                    trailingIconOnClick = {}
+                    trailingIconOnClick = {
+                        viewModel.onContactFieldChange(ContactFieldType.NAME)
+                    }
                 )
                 CustomTextField(
                     value = uiState.licensePlate,
-                    onValueChange = viewModel::onLicensePlateChange,
+                    onValueChange = {
+                        viewModel.onContactFieldChange(ContactFieldType.LICENSE_PLATE, it)
+                    },
                     label ="Rendszam",
                     placeholder = "CV01BMW" ,
                     leadingIconImageVector = Icons.Filled.DirectionsCar,
-                    trailingIconOnClick = {}
+                    trailingIconOnClick = {
+                        viewModel.onContactFieldChange(ContactFieldType.LICENSE_PLATE)
+                    }
                 )
                 CustomTextField(
                     value = uiState.phoneNumber,
-                    onValueChange = viewModel::onPhoneNumberChange,
+                    onValueChange = {
+                        viewModel.onContactFieldChange(ContactFieldType.PHONE, it)
+                    },
                     label ="Telefonszam",
                     placeholder = "0123456789" ,
                     leadingIconImageVector = Icons.Filled.Phone,
-                    trailingIconOnClick = {}
+                    trailingIconOnClick =  {
+                        viewModel.onContactFieldChange(ContactFieldType.PHONE)
+                    },
                 )
                 CustomTextField(
                     value = uiState.timeStamp,
-                    onValueChange = viewModel::onTimeStampChange,
+                    onValueChange = {
+                        viewModel.onContactFieldChange(ContactFieldType.TIMESTAMP, it)
+                    },
                     label ="Lejarasi datum",
                     placeholder = "2026.01.01" ,
                     leadingIconImageVector = Icons.Filled.CalendarMonth,
-                    trailingIconOnClick = {}
+                    trailingIconOnClick = {
+                        viewModel.onContactFieldChange(ContactFieldType.TIMESTAMP)
+                    },
                 )
 
                 ElevatedButton(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 5.dp,vertical = 40.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 5.dp, vertical = 40.dp),
                     onClick = {
                         viewModel.insertContact()
                         onBack()

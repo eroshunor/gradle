@@ -35,15 +35,21 @@ fun CustomTextField(
             )
         },
         trailingIcon = {
-            IconButton(
-                onClick = trailingIconOnClick,
-                content = {
-                    Icon(
-                        imageVector = Icons.Filled.Close,
-                        contentDescription = null
-                    )
-                }
-            )
+            if (value.isNotEmpty()) {
+                IconButton(
+                    onClick = trailingIconOnClick,
+                    content = {
+                        Icon(
+                            imageVector = Icons.Filled.Close,
+                            contentDescription = null
+                        )
+                    }
+                )
+            }
         }
     )
+}
+
+enum class ContactFieldType {
+    NAME, LICENSE_PLATE, PHONE, TIMESTAMP
 }
