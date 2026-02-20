@@ -62,7 +62,7 @@ fun ContactListScreen(
 
                 }
                 Text(
-                    text = "ITP lista",
+                    text = "Lista",
                     modifier = modifier
                 )
                 LazyColumn {

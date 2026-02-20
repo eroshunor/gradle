@@ -78,19 +78,4 @@ object AppModule {
         return SendMessageUseCase(messageRepository = messageRepository)
     }
 
-    /*@HiltWorker
-    class SmsWorker @AssistedInject constructor(
-        @Assisted appContext: Context,
-        @Assisted workerParams: WorkerParameters,
-        private val sendMessageUseCase: SendMessageUseCase,
-    ) : Worker(appContext, workerParams) {
-
-        override fun doWork(): Result {
-            sendMessageUseCase(
-                phoneNumber = "+40735211195",
-                message = "Ez az uzenet..."
-            )
-            return Result.success()
-        }
-    }*/
 }

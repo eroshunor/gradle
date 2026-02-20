@@ -3,7 +3,6 @@ package com.example.messagesender.presentation.contact_list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.messagesender.domain.use_case.GetAllContactsUseCase
-import com.example.messagesender.domain.use_case.ScheduleMessageUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,8 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ContactListViewModel @Inject constructor(
-    private val getAllContactsUseCase: GetAllContactsUseCase,
-    private val scheduleMessageUseCase: ScheduleMessageUseCase
+    private val getAllContactsUseCase: GetAllContactsUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ContactListUiState(isLoading = true))
@@ -35,8 +33,7 @@ class ContactListViewModel @Inject constructor(
         }
     }
     fun sendMessage() {
-        scheduleMessageUseCase.invoke(
-    )
+
     }
 }
 
